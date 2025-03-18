@@ -2,16 +2,17 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class PersonTest {
-
     data class Person(val name: String, var age: Int?, var nickname: String = "")
 
     @Test
     fun `named arguments`() {
-        val people = listOf(
-            Person(name = "Sunyong Youn", age = 28, nickname = "Sun"),
-            Person(name = "Sunyong Youn", nickname = "Sun", age = 28),
-            Person(nickname = "Sun", age = 28, name = "Sunyong Youn"),
-        )
+        val people =
+            listOf(
+                Person(name = "Sunyong Youn", age = 28, nickname = "Sun"),
+                Person(name = "Sunyong Youn", nickname = "Sun", age = 28),
+                Person(nickname = "Sun", age = 28, name = "Sunyong Youn"),
+            )
+
         assertThat(people).allSatisfy {
             assertThat(it.name).isEqualTo("Sunyong Youn")
             assertThat(it.age).isEqualTo(28)
@@ -39,7 +40,7 @@ class PersonTest {
     }
 
     @Test
-    fun `copy`() {
+    fun copy() {
         val person1 = Person("Sunyong Youn", 28, "Sun")
         val person2 = person1.copy(age = null)
 
