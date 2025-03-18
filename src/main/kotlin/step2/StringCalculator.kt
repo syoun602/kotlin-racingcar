@@ -3,8 +3,8 @@ package step2
 class StringCalculator(
     input: String,
 ) {
-    private val operands: MutableList<Int> = mutableListOf()
-    private val operators: MutableList<ArithmeticOperator> = mutableListOf()
+    private val operands = mutableListOf<Int>()
+    private val operators = mutableListOf<ArithmeticOperator>()
 
     init {
         require(input.isNotBlank()) {
