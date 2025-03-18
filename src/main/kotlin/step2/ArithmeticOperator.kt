@@ -7,7 +7,10 @@ enum class ArithmeticOperator(
     PLUS("+", Int::plus),
     MINUS("-", Int::minus),
     MULTIPLY("*", Int::times),
-    DIVIDE("/", Int::div),
+    DIVIDE("/", { a, b ->
+        kotlin.runCatching { a.div(b) }
+            .getOrElse { throw IllegalArgumentException("Division by 0 is undefined.") }
+    }),
     ;
 
     companion object {

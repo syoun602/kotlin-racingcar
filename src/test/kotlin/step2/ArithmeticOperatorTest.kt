@@ -43,5 +43,11 @@ class ArithmeticOperatorTest : ShouldSpec({
         should("divide given values") {
             ArithmeticOperator.DIVIDE.operate(6, 3) shouldBe 2
         }
+
+        should("throw error when division by 0") {
+            shouldThrow<IllegalArgumentException> {
+                ArithmeticOperator.DIVIDE.operate(10, 0)
+            }
+        }
     }
 })

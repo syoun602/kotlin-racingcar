@@ -106,6 +106,12 @@ class StringCalculatorTest : ShouldSpec({
                     StringCalculator(it).calculate()
                 } shouldBe listOf(6, 1, 3)
             }
+
+            should("throw exception if division by 0") {
+                shouldThrow<IllegalArgumentException> {
+                    StringCalculator("24 / 12 / 0").calculate()
+                }
+            }
         }
 
         context("ComplexExpression") {
