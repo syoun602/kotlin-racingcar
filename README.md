@@ -2,10 +2,12 @@
 
 ## [Step 2] - String Calculator
 
-1. Get input from user
-    - Throw `IllegalArgumentException` when input is null or blank
-    - Throw `IllegalArgumentException` when input contains symbols other than arithmetic operators
-2. Parse numbers and operators
+1. Validate input
+    - Throw `IllegalArgumentException` when input is null or empty
+2. Parse input to operands and operators
     - Throw `IllegalArgumentException` when strings other than numbers are given
-3. Calculate according to inputs
-    - Return undefined when division by 0
+    - Throw `IllegalArgumentException` when input contains symbols other than arithmetic operators
+    - Throw `IllegalArgumentException` when input is not a valid expression
+3. Use enum to calculate with two numbers
+4. Calculate according to given operands and operators in order
+    - Throw `IllegalArgumentException` when division by 0
