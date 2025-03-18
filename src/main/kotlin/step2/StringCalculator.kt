@@ -1,10 +1,10 @@
 package step2
 
 class StringCalculator(
-    private val input: String,
+    input: String,
 ) {
-    private var operands: MutableList<Int> = mutableListOf()
-    private var operators: MutableList<ArithmeticOperator> = mutableListOf()
+    private val operands: MutableList<Int> = mutableListOf()
+    private val operators: MutableList<ArithmeticOperator> = mutableListOf()
 
     init {
         require(input.isNotBlank()) {
@@ -12,6 +12,16 @@ class StringCalculator(
         }
 
         parseInput(input)
+    }
+
+    fun calculate(): Int {
+        var calculated = operands.first()
+
+        for (index in operators.indices) {
+            calculated = operators[index].operate(calculated, operands[index + 1])
+        }
+
+        return calculated
     }
 
     private fun parseInput(input: String) {
@@ -48,7 +58,7 @@ class StringCalculator(
             val value = input.toInt()
             operands.add(value)
         }.onFailure {
-            throw IllegalArgumentException("Invalid operand: $input.")
+            throw IllegalArgumentException("Invalid operand: $input. Must be a number.")
         }
     }
 
