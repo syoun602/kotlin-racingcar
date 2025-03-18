@@ -26,4 +26,22 @@ class ArithmeticOperatorTest : ShouldSpec({
             }
         }
     }
+
+    context("ArithmeticOperations") {
+        should("add given values") {
+            ArithmeticOperator.PLUS.operate(1, 2) shouldBe 3
+        }
+
+        should("subtract given values") {
+            ArithmeticOperator.MINUS.operate(5, 2) shouldBe 3
+        }
+
+        should("multiply given values") {
+            ArithmeticOperator.MULTIPLY.operate(2, 3) shouldBe 6
+        }
+
+        should("divide given values") {
+            ArithmeticOperator.DIVIDE.operate(6, 3) shouldBe 2
+        }
+    }
 })
