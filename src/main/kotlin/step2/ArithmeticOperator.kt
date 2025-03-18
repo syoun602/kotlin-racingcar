@@ -4,10 +4,10 @@ enum class ArithmeticOperator(
     val symbol: String,
     val operate: (Int, Int) -> Int,
 ) {
-    PLUS("+", { a, b -> a + b }),
-    MINUS("-", { a, b -> a - b }),
-    MULTIPLY("*", { a, b -> a * b }),
-    DIVIDE("/", { a, b -> a / b }),
+    PLUS("+", Int::plus),
+    MINUS("-", Int::minus),
+    MULTIPLY("*", Int::times),
+    DIVIDE("/", Int::div),
     ;
 
     companion object {
