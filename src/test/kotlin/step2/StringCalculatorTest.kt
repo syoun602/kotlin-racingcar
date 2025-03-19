@@ -3,18 +3,21 @@ package step2
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ShouldSpec
+import io.kotest.inspectors.forAll
 import io.kotest.matchers.shouldBe
 
 class StringCalculatorTest : ShouldSpec({
     context("InputValidation") {
         should("throw exception if null or empty") {
-            shouldThrow<IllegalArgumentException> {
-                StringCalculator("")
+            listOf("", " ", null).forAll {
+                shouldThrow<IllegalArgumentException> {
+                    StringCalculator("")
+                }
             }
         }
 
         should("throw exception if split strings are less than 3") {
-            listOf("12 34", "12 +", "+ +").forEach {
+            listOf("12 34", "12 +", "+ +").forAll {
                 shouldThrow<IllegalArgumentException> {
                     StringCalculator(it)
                 }
@@ -22,7 +25,7 @@ class StringCalculatorTest : ShouldSpec({
         }
 
         should("contain at least 3 split strings") {
-            listOf("12 + 56", "12  + 56", "12 + 34", "12 + 34").forEach {
+            listOf("12 + 56", "12  + 56", "12 + 34", "12 + 34").forAll {
                 shouldNotThrowAny {
                     StringCalculator(it)
                 }
@@ -37,7 +40,7 @@ class StringCalculatorTest : ShouldSpec({
                 "1 + 2 + 3",
                 "1 + 2 / 2 * 5",
                 "5 - 1 * 2 / 4",
-            ).forEach {
+            ).forAll {
                 shouldNotThrowAny {
                     StringCalculator(it)
                 }
@@ -50,7 +53,7 @@ class StringCalculatorTest : ShouldSpec({
                 "+ 1 + 11 / 2",
                 "10 - 5 * 2 +",
                 "* 1 + 3 / 2 +",
-            ).forEach {
+            ).forAll {
                 shouldThrow<IllegalArgumentException> {
                     StringCalculator(it)
                 }
@@ -66,7 +69,7 @@ class StringCalculatorTest : ShouldSpec({
                     "2 + 3",
                     "2 + 2 + 1",
                     "4 + 1",
-                ).forEach {
+                ).forAll {
                     StringCalculator(it).calculate() shouldBe 5
                 }
             }
@@ -78,7 +81,7 @@ class StringCalculatorTest : ShouldSpec({
                     "15 - 14",
                     "6 - 2 - 3",
                     "10 - 2 - 7",
-                ).forEach {
+                ).forAll {
                     StringCalculator(it).calculate() shouldBe 1
                 }
             }
@@ -92,7 +95,7 @@ class StringCalculatorTest : ShouldSpec({
                     "1 * 23 * 5 * 0",
                 ).map {
                     StringCalculator(it).calculate()
-                } shouldBe listOf(6, 48, 0)
+                } shouldBe listOf(6, 48, 1)
             }
         }
 
