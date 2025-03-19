@@ -3,6 +3,7 @@ package step2
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ShouldSpec
+import io.kotest.datatest.withData
 import io.kotest.inspectors.forAll
 import io.kotest.matchers.shouldBe
 
@@ -95,7 +96,7 @@ class StringCalculatorTest : ShouldSpec({
                     "1 * 23 * 5 * 0",
                 ).map {
                     StringCalculator(it).calculate()
-                } shouldBe listOf(6, 48, 1)
+                } shouldBe listOf(6, 48, 0)
             }
         }
 
@@ -126,6 +127,42 @@ class StringCalculatorTest : ShouldSpec({
                 ).map {
                     StringCalculator(it).calculate()
                 } shouldBe listOf(4, 15, 42)
+            }
+        }
+    }
+
+    context("LearningTests") {
+        context("Inspectors") {
+            should("calculate complex expressions") {
+                listOf(
+                    "2 + 6 / 2" to 4,
+                    "36 / 6 * 2 + 3" to 15,
+                    "88 / 22 + 3 * 6" to 42,
+                ).forAll { (expression, expected) ->
+                    StringCalculator(expression).calculate() shouldBe expected
+                }
+            }
+        }
+
+        context("Data Tests with should-withData") {
+            should("calculate complex expressions") {
+                this@context.withData(
+                    "2 + 6 / 2" to 4,
+                    "36 / 6 * 2 + 3" to 15,
+                    "88 / 22 + 3 * 6" to 42,
+                ) { (expression, expected) ->
+                    StringCalculator(expression).calculate() shouldBe expected
+                }
+            }
+        }
+
+        context("Data Tests with withData") {
+            withData(
+                "2 + 6 / 2" to 4,
+                "36 / 6 * 2 + 3" to 15,
+                "88 / 22 + 3 * 6" to 42,
+            ) { (expression, expected) ->
+                StringCalculator(expression).calculate() shouldBe expected
             }
         }
     }
