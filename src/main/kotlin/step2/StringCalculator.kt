@@ -49,12 +49,10 @@ class StringCalculator(
     }
 
     private fun parseOperand(input: String) {
-        runCatching {
-            val value = input.toInt()
-            operands.add(value)
-        }.onFailure {
-            throw IllegalArgumentException("Invalid operand: $input. Must be a number.")
-        }
+        val value =
+            input.toIntOrNull()
+                ?: throw IllegalArgumentException("Invalid operand: $input. Must be a number.")
+        operands.add(value)
     }
 
     private fun parseOperator(input: String) {
