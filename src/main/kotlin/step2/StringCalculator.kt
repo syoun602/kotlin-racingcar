@@ -14,15 +14,10 @@ class StringCalculator(
         parseInput(input)
     }
 
-    fun calculate(): Int {
-        var calculated = operands.first()
-
-        for (index in operators.indices) {
-            calculated = operators[index].operate(calculated, operands[index + 1])
+    fun calculate() =
+        operators.foldIndexed(operands.first()) { index, acc, operator ->
+            operator.operate(acc, operands[index + 1])
         }
-
-        return calculated
-    }
 
     private fun parseInput(input: String) {
         val splitInput =
