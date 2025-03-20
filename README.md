@@ -17,9 +17,11 @@
   - Can move forward or stay still
   - Moving policy - if random number is below 4, stay still, else move forward
 
-- Input
-  - Number of cars
-  - Number of rounds
+- Input Number
+  - Used for number of cars and number of rounds
+  - Number must be positive and less or equal to 10
 
-- Output
-  - Current state of the cars
+- View
+  - Request number of cars
+  - Request number of rounds
+  - Print current position of the cars
