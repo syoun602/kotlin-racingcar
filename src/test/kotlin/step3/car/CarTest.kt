@@ -1,4 +1,4 @@
-package step3
+package step3.car
 
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.core.spec.style.ShouldSpec

@@ -1,4 +1,4 @@
-package step3
+package step3.car
 
 class Car {
     var position = 0

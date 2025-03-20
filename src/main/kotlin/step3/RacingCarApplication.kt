@@ -1,7 +1,10 @@
 package step3
 
-import step3.Car.Companion.MAXIMUM_POWER
-import step3.Car.Companion.MINIMUM_POWER
+import step3.car.Car
+import step3.car.Car.Companion.MAXIMUM_POWER
+import step3.car.Car.Companion.MINIMUM_POWER
+import step3.view.InputView
+import step3.view.OutputView
 
 fun main() {
     val numberOfCars = InputView.requestNumberOfCars()
