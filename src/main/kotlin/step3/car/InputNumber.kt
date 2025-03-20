@@ -5,7 +5,10 @@ class InputNumber(
 ) {
     init {
         require(value in MINIMUM_NUMBER_INPUT..MAXIMUM_NUMBER_INPUT) {
-            throw IllegalArgumentException("Invalid input. Value must be between 0 and 10.")
+            throw IllegalArgumentException(
+                "Invalid input. Value must be between " +
+                    "$MINIMUM_NUMBER_INPUT " + "and $MAXIMUM_NUMBER_INPUT.",
+            )
         }
     }
 
