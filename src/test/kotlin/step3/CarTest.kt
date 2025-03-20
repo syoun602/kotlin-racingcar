@@ -1,0 +1,19 @@
+package step3
+
+import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.kotest.core.spec.style.ShouldSpec
+import io.kotest.matchers.shouldBe
+
+class CarTest : ShouldSpec({
+    context("Create") {
+        should("create a car") {
+            shouldNotThrowAny {
+                Car()
+            }
+        }
+
+        should("position of the car be 0") {
+            Car().position shouldBe 0
+        }
+    }
+})
