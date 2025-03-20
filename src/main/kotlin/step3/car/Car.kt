@@ -2,6 +2,7 @@ package step3.car
 
 class Car {
     var position = 0
+        private set
 
     fun move(generatePower: () -> Int) {
         if (ENGINE_THRESHOLD <= generatePower.invoke()) {
