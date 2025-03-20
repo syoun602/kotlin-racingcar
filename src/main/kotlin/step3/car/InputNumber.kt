@@ -1,7 +1,7 @@
 package step3.car
 
 class InputNumber(
-    private val value: Int,
+    val value: Int,
 ) {
     init {
         require(value in MINIMUM_NUMBER_INPUT..MAXIMUM_NUMBER_INPUT) {
