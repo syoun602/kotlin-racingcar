@@ -10,6 +10,8 @@ class Car {
     }
 
     companion object {
+        const val MINIMUM_POWER = 1
+        const val MAXIMUM_POWER = 9
         private const val MOVE_THRESHOLD = 4
     }
 }
