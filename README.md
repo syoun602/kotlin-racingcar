@@ -11,3 +11,15 @@
 3. Use enum to calculate with two numbers
 4. Calculate according to given operands and operators in order
     - Throw `IllegalArgumentException` when division by 0
+
+## [Step 3] - Car Racing
+- Car
+  - Can move forward or stay still
+  - Moving policy - if random number is below 4, stay still, else move forward
+
+- Input
+  - Number of cars
+  - Number of rounds
+
+- Output
+  - Current state of the cars
