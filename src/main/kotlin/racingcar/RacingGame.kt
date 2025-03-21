@@ -1,22 +1,21 @@
 package racingcar
 
 import racingcar.car.Car
-import racingcar.car.InputNumber
 
 class RacingGame(
     private val cars: List<Car>,
-    private val rounds: InputNumber,
+    private val rounds: Int,
 ) {
     constructor(
-        numberOfCars: InputNumber,
-        rounds: InputNumber,
+        numberOfCars: Int,
+        rounds: Int,
     ) : this(
-        List(numberOfCars.value) { Car() },
+        List(numberOfCars) { Car() },
         rounds,
     )
 
     fun start(result: (List<Car>) -> Unit) {
-        repeat(rounds.value) {
+        repeat(rounds) {
             cars.forEach { car ->
                 car.move()
             }

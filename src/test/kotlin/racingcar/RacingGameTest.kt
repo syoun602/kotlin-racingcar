@@ -6,7 +6,6 @@ import io.kotest.datatest.withData
 import io.kotest.inspectors.forAll
 import io.kotest.matchers.ranges.shouldBeIn
 import racingcar.car.Car
-import racingcar.car.InputNumber
 
 class RacingGameTest : ShouldSpec({
     context("Create") {
@@ -17,7 +16,7 @@ class RacingGameTest : ShouldSpec({
             10 to 10,
         ) { (numberOfCars, numberOfRounds) ->
             shouldNotThrowAny {
-                RacingGame(InputNumber(numberOfCars), InputNumber(numberOfRounds))
+                RacingGame(numberOfCars, numberOfRounds)
             }
         }
     }
@@ -33,7 +32,7 @@ class RacingGameTest : ShouldSpec({
                 val car1 = Car()
                 val car2 = Car()
 
-                val racingGame = RacingGame(InputNumber(2), InputNumber(rounds))
+                val racingGame = RacingGame(listOf(car1, car2), rounds)
 
                 racingGame.start { }
 
