@@ -20,18 +20,16 @@ class CarTest : ShouldSpec({
 
     context("Move") {
         should("move a car") {
-            listOf(4, 5, 6, 7, 8, 9).forAll {
-                val car = Car()
-                car.move { it }
+            val car = Car(canMove = { true })
+            car.move()
 
-                car.position shouldBe 1
-            }
+            car.position shouldBe 1
         }
 
         should("not move a car") {
             listOf(0, 1, 2, 3).forAll {
-                val car = Car()
-                car.move { it }
+                val car = Car(canMove = { false })
+                car.move()
 
                 car.position shouldBe 0
             }

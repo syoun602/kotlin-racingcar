@@ -1,8 +1,6 @@
 package racingcar
 
 import racingcar.car.Car
-import racingcar.car.Car.Companion.MAXIMUM_POWER
-import racingcar.car.Car.Companion.MINIMUM_POWER
 import racingcar.car.InputNumber
 
 class RacingGame(
@@ -20,8 +18,7 @@ class RacingGame(
     fun start(result: (List<Car>) -> Unit) {
         repeat(rounds.value) {
             cars.forEach { car ->
-                val power = (MINIMUM_POWER..MAXIMUM_POWER).random()
-                car.move { power }
+                car.move()
             }
 
             result(cars)
