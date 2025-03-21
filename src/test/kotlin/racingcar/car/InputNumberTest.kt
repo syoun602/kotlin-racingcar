@@ -1,4 +1,4 @@
-package step3.car
+package racingcar.car
 
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrow

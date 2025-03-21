@@ -1,8 +1,8 @@
-package step3
+package racingcar
 
-import step3.car.InputNumber
-import step3.view.InputView
-import step3.view.OutputView
+import racingcar.car.InputNumber
+import racingcar.view.InputView
+import racingcar.view.OutputView
 
 fun main() {
     val inputNumberOfCars = InputNumber(InputView.requestNumberOfCars())

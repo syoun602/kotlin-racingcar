@@ -1,4 +1,4 @@
-package step3.car
+package racingcar.car
 
 class InputNumber(
     val value: Int,

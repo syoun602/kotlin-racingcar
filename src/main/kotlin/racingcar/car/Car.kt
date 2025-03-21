@@ -1,4 +1,4 @@
-package step3.car
+package racingcar.car
 
 class Car {
     var position = START_POSITION

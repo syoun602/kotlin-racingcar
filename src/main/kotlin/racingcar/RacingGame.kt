@@ -1,9 +1,9 @@
-package step3
+package racingcar
 
-import step3.car.Car
-import step3.car.Car.Companion.MAXIMUM_POWER
-import step3.car.Car.Companion.MINIMUM_POWER
-import step3.car.InputNumber
+import racingcar.car.Car
+import racingcar.car.Car.Companion.MAXIMUM_POWER
+import racingcar.car.Car.Companion.MINIMUM_POWER
+import racingcar.car.InputNumber
 
 class RacingGame(
     private val cars: List<Car>,

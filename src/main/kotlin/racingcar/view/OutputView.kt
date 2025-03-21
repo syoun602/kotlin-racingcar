@@ -1,6 +1,6 @@
-package step3.view
+package racingcar.view
 
-import step3.car.Car
+import racingcar.car.Car
 
 object OutputView {
     fun printCarPosition(car: Car) {

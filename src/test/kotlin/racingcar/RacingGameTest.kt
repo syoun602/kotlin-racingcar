@@ -1,12 +1,12 @@
-package step3
+package racingcar
 
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.datatest.withData
 import io.kotest.inspectors.forAll
 import io.kotest.matchers.ranges.shouldBeIn
-import step3.car.Car
-import step3.car.InputNumber
+import racingcar.car.Car
+import racingcar.car.InputNumber
 
 class RacingGameTest : ShouldSpec({
     context("Create") {

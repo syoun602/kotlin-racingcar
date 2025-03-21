@@ -1,4 +1,4 @@
-package step2
+package calculator
 
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrow

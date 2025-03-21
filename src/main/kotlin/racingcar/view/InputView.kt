@@ -1,4 +1,4 @@
-package step3.view
+package racingcar.view
 
 object InputView {
     fun requestNumberOfCars(): Int {
