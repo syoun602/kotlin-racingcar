@@ -6,6 +6,8 @@ class RacingGame(
     private val cars: List<Car>,
     private val rounds: Int,
 ) {
+    private val gameResult = mutableListOf<RaceResult>()
+
     constructor(
         numberOfCars: Int,
         rounds: Int,
@@ -14,13 +16,13 @@ class RacingGame(
         rounds,
     )
 
-    fun start(result: (List<Car>) -> Unit) {
+    fun start() {
         repeat(rounds) {
-            cars.forEach { car ->
-                car.move()
-            }
-
-            result(cars)
+            cars.forEach { it.move() }
+            val roundResult = RaceResult(cars.map { it.position })
+            gameResult.add(roundResult)
         }
     }
+
+    fun getResult() = gameResult.toList()
 }

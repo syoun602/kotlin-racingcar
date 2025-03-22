@@ -34,7 +34,7 @@ class RacingGameTest : ShouldSpec({
 
                 val racingGame = RacingGame(listOf(car1, car2), rounds)
 
-                racingGame.start { }
+                racingGame.start()
 
                 car1.position shouldBeIn 0..rounds
                 car2.position shouldBeIn 0..rounds

@@ -1,12 +1,14 @@
 package racingcar.view
 
-import racingcar.car.Car
+import racingcar.RaceResult
 
 object OutputView {
-    fun printCarPosition(car: Car) {
-        repeat(car.position) { print("-") }
-        println()
+    fun printResult(results: List<RaceResult>) {
+        results.forEach { result ->
+            result.positions.forEach {
+                println("-".repeat(it))
+            }
+            println()
+        }
     }
-
-    fun printBlankLine() = println()
 }

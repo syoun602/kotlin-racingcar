@@ -7,11 +7,8 @@ fun main() {
     val inputNumberOfCars = InputView.requestNumberOfCars()
     val inputNumberOfRounds = InputView.requestNumberOfRounds()
 
-    RacingGame(inputNumberOfCars, inputNumberOfRounds)
-        .start { cars ->
-            cars.forEach {
-                OutputView.printCarPosition(it)
-            }
-            OutputView.printBlankLine()
-        }
+    val racingGame = RacingGame(inputNumberOfCars, inputNumberOfRounds)
+    racingGame.start()
+
+    OutputView.printResult(racingGame.getResult())
 }
